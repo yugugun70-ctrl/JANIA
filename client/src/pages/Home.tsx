@@ -111,7 +111,7 @@ export default function Home() {
                 {/* Before Image */}
                 <div className="absolute inset-0">
                   <img 
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&h=800&fit=crop"
+                    src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663775397883/xdDWGOpRzLTmppPC.jpg"
                     alt="Before"
                     className="w-full h-full object-cover"
                   />
@@ -126,10 +126,10 @@ export default function Home() {
                   style={{ width: `${sliderPosition}%` }}
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=800&fit=crop"
+                    src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663775397883/xdDWGOpRzLTmppPC.jpg"
                     alt="After"
                     className="w-full h-full object-cover"
-                    style={{ width: `${100 / (sliderPosition / 100)}%` }}
+                    style={{ width: `${100 / (sliderPosition / 100)}%`, filter: 'brightness(1.1) contrast(1.15) saturate(1.1)' }}
                   />
                   <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur px-3 py-1 rounded-full text-sm">
                     Sesudah
@@ -170,13 +170,13 @@ export default function Home() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id as Category)}
-                className={`px-4 sm:px-6 py-3 sm:py-3 rounded-lg font-semibold whitespace-nowrap transition-all flex items-center gap-2 transform hover:scale-105 min-h-12 sm:min-h-auto ${
+                className={`px-5 sm:px-6 py-4 sm:py-3 rounded-lg font-semibold whitespace-nowrap transition-all flex items-center gap-2 transform hover:scale-105 min-h-16 sm:min-h-auto ${
                   selectedCategory === cat.id
                     ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg scale-105'
                     : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                 }`}
               >
-                <span className="text-lg sm:text-base">{cat.icon}</span>
+                <span className="text-2xl sm:text-base">{cat.icon}</span>
                 <span className="hidden sm:inline text-sm sm:text-base">{cat.label}</span>
               </button>
             ))}
@@ -188,11 +188,15 @@ export default function Home() {
               {filteredModels.map((model) => (
                 <button
                   key={model.id}
-                  className="group p-4 sm:p-4 bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 hover:border-purple-400/50 rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/20 transform hover:scale-110 active:scale-95 min-h-32 sm:min-h-auto flex flex-col items-center justify-center"
+                  className="group p-0 sm:p-4 bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 hover:border-purple-400/50 rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/20 transform hover:scale-110 active:scale-95 min-h-48 sm:min-h-auto flex flex-col items-center justify-center overflow-hidden"
                 >
-                  <div className="text-4xl sm:text-4xl mb-3 group-hover:scale-110 transition-transform">{model.icon}</div>
-                  <div className="text-sm sm:text-sm font-medium text-white group-hover:text-purple-300 transition-colors line-clamp-2 text-center">
-                    {model.name}
+                  <div className="w-full h-28 sm:h-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                    <div className="text-6xl sm:text-4xl group-hover:scale-110 transition-transform">{model.icon}</div>
+                  </div>
+                  <div className="p-4 sm:p-4 w-full text-center">
+                    <div className="text-base sm:text-sm font-medium text-white group-hover:text-purple-300 transition-colors line-clamp-2">
+                      {model.name}
+                    </div>
                   </div>
                 </button>
               ))}
@@ -201,20 +205,20 @@ export default function Home() {
 
           {/* Action Buttons */}
           <div className="flex gap-3 sm:gap-3 flex-col sm:flex-row">
-            <button className="flex-1 px-4 sm:px-6 py-4 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-14 sm:min-h-auto">
-              <Download size={20} />
+            <button className="flex-1 px-4 sm:px-6 py-6 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-18 sm:min-h-auto">
+              <Download size={28} />
               <span className="hidden sm:inline">Unduh HD</span>
-              <span className="sm:hidden text-base">Unduh</span>
+              <span className="sm:hidden text-lg font-bold">Unduh</span>
             </button>
-            <button className="flex-1 px-4 sm:px-6 py-4 sm:py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-14 sm:min-h-auto">
-              <Save size={20} />
+            <button className="flex-1 px-4 sm:px-6 py-6 sm:py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-18 sm:min-h-auto">
+              <Save size={28} />
               <span className="hidden sm:inline">Simpan Proyek</span>
-              <span className="sm:hidden text-base">Simpan</span>
+              <span className="sm:hidden text-lg font-bold">Simpan</span>
             </button>
-            <button className="flex-1 px-4 sm:px-6 py-4 sm:py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-14 sm:min-h-auto">
-              <Share2 size={20} />
+            <button className="flex-1 px-4 sm:px-6 py-6 sm:py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-18 sm:min-h-auto">
+              <Share2 size={28} />
               <span className="hidden sm:inline">Bagikan</span>
-              <span className="sm:hidden text-base">Bagikan</span>
+              <span className="sm:hidden text-lg font-bold">Bagikan</span>
             </button>
           </div>
         </div>
