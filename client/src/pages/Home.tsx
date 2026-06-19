@@ -160,7 +160,7 @@ export default function Home() {
           </div>
 
           {/* Toolbar AI - Editor Tools */}
-          <div className="mb-8 flex gap-2 sm:gap-3 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="mb-8 flex gap-2 sm:gap-3 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
             {[
               { id: 'tingkatkan', label: 'Tingkatkan', icon: '✨' },
               { id: 'kecantikan', label: 'Kecantikan', icon: '💄' },
@@ -170,28 +170,28 @@ export default function Home() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id as Category)}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold whitespace-nowrap transition-all flex items-center gap-2 transform hover:scale-105 ${
+                className={`px-4 sm:px-6 py-3 sm:py-3 rounded-lg font-semibold whitespace-nowrap transition-all flex items-center gap-2 transform hover:scale-105 min-h-12 sm:min-h-auto ${
                   selectedCategory === cat.id
                     ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg scale-105'
                     : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                 }`}
               >
                 <span className="text-lg sm:text-base">{cat.icon}</span>
-                <span className="hidden sm:inline">{cat.label}</span>
+                <span className="hidden sm:inline text-sm sm:text-base">{cat.label}</span>
               </button>
             ))}
           </div>
 
           {/* Model Cards - Dynamic Display */}
           <div className="mb-8">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-4">
               {filteredModels.map((model) => (
                 <button
                   key={model.id}
-                  className="group p-3 sm:p-4 bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 hover:border-purple-400/50 rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/20 transform hover:scale-110 active:scale-95"
+                  className="group p-4 sm:p-4 bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 hover:border-purple-400/50 rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/20 transform hover:scale-110 active:scale-95 min-h-32 sm:min-h-auto flex flex-col items-center justify-center"
                 >
-                  <div className="text-3xl sm:text-4xl mb-2 group-hover:scale-110 transition-transform">{model.icon}</div>
-                  <div className="text-xs sm:text-sm font-medium text-white group-hover:text-purple-300 transition-colors line-clamp-2">
+                  <div className="text-4xl sm:text-4xl mb-3 group-hover:scale-110 transition-transform">{model.icon}</div>
+                  <div className="text-sm sm:text-sm font-medium text-white group-hover:text-purple-300 transition-colors line-clamp-2 text-center">
                     {model.name}
                   </div>
                 </button>
@@ -200,21 +200,21 @@ export default function Home() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-2 sm:gap-3 flex-col sm:flex-row">
-            <button className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95">
-              <Download size={18} />
+          <div className="flex gap-3 sm:gap-3 flex-col sm:flex-row">
+            <button className="flex-1 px-4 sm:px-6 py-4 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-14 sm:min-h-auto">
+              <Download size={20} />
               <span className="hidden sm:inline">Unduh HD</span>
-              <span className="sm:hidden">Unduh</span>
+              <span className="sm:hidden text-base">Unduh</span>
             </button>
-            <button className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95">
-              <Save size={18} />
+            <button className="flex-1 px-4 sm:px-6 py-4 sm:py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-14 sm:min-h-auto">
+              <Save size={20} />
               <span className="hidden sm:inline">Simpan Proyek</span>
-              <span className="sm:hidden">Simpan</span>
+              <span className="sm:hidden text-base">Simpan</span>
             </button>
-            <button className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95">
-              <Share2 size={18} />
+            <button className="flex-1 px-4 sm:px-6 py-4 sm:py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 min-h-14 sm:min-h-auto">
+              <Share2 size={20} />
               <span className="hidden sm:inline">Bagikan</span>
-              <span className="sm:hidden">Bagikan</span>
+              <span className="sm:hidden text-base">Bagikan</span>
             </button>
           </div>
         </div>
