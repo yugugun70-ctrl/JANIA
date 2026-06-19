@@ -14,7 +14,13 @@ const adjustmentTools = [
   { name: "Bayangan", min: -100, max: 100, default: 0 },
 ];
 
-const enhanceTools = ["Potret HD", "Wajah Alami", "Detail Ultra", "Pemulihan Premium", "AI Potret Pro", "Buat Ulang AI", "Buat Ulang AI Cepat", "Video HD 4X"];
+const enhanceTools = [
+  { id: "face_4x", name: "Face Clear 4X" },
+  { id: "face_v2_4x", name: "Face Natural 4X" },
+  { id: "general_4x", name: "General Enhance 4X" },
+  { id: "high_fidelity_4x", name: "High Fidelity 4X" },
+  { id: "general_restore_4x", name: "General Restore 4X" }
+];
 const beautyTools = ["Kecantikan Alami", "Kecantikan Lembut", "Kulit Jernih", "Gaya Korea", "Gaya Jepang", "Glamor", "Elegan", "Tampilan Segar"];
 const effectsTools = ["Alami", "Cahaya Lembut", "Vintage", "Kota Cyber", "Fantasi Mimpi", "Kartun", "Sketsa Pensil", "Cahaya Bulan", "Seni Pastel", "Mimpi Flora"];
 
@@ -203,11 +209,11 @@ export default function Editor() {
               <TabsContent value="enhance" className="m-0 p-4 space-y-2">
                 {enhanceTools.map((tool) => (
                   <Button
-                    key={tool}
+                    key={tool.id}
                     variant="outline"
                     className="w-full justify-start text-xs hover:bg-purple-500/20 hover:border-purple-500/50"
                   >
-                    {tool}
+                    {tool.name}
                   </Button>
                 ))}
               </TabsContent>

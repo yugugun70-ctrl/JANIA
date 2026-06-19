@@ -11,13 +11,12 @@ interface Model {
 }
 
 const models: Model[] = [
-  // Tingkatkan
-  { id: 'potret-hd', name: 'Potret HD', icon: '🖼️', category: 'tingkatkan' },
-  { id: 'wajah-alami', name: 'Wajah Alami', icon: '👤', category: 'tingkatkan' },
-  { id: 'detail-ultra', name: 'Detail Ultra', icon: '✨', category: 'tingkatkan' },
-  { id: 'pemulihan', name: 'Pemulihan', icon: '🔧', category: 'tingkatkan' },
-  { id: 'upscale', name: 'Upscale', icon: '📈', category: 'tingkatkan' },
-  { id: 'restore', name: 'Restore', icon: '♻️', category: 'tingkatkan' },
+  // Tingkatkan (HitPaw AI Models)
+  { id: 'face_4x', name: 'Face Clear 4X', icon: '🖼️', category: 'tingkatkan' },
+  { id: 'face_v2_4x', name: 'Face Natural 4X', icon: '👤', category: 'tingkatkan' },
+  { id: 'general_4x', name: 'General Enhance 4X', icon: '✨', category: 'tingkatkan' },
+  { id: 'high_fidelity_4x', name: 'High Fidelity 4X', icon: '💎', category: 'tingkatkan' },
+  { id: 'general_restore_4x', name: 'General Restore 4X', icon: '🎬', category: 'tingkatkan' },
   
   // Kecantikan
   { id: 'alami-beauty', name: 'Alami Beauty', icon: '🌸', category: 'kecantikan' },
