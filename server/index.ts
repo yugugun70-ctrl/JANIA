@@ -25,23 +25,29 @@ async function startServer() {
 
   // HitPaw API Proxy Endpoints
   app.post("/api/proxy/photo-enhancer", async (req, res) => {
+    console.log("Received photo-enhancer request:", { ...req.body, img_url: req.body.img_url?.substring(0, 50) + "..." });
     try {
       const response = await axios.post(`${HITPAW_BASE_URL}/api/photo-enhancer`, req.body, {
         headers: { "Apikey": HITPAW_API_KEY, "Content-Type": "application/json" }
       });
+      console.log("HitPaw photo-enhancer response:", response.data);
       res.json(response.data);
     } catch (error: any) {
+      console.error("HitPaw photo-enhancer error:", error.response?.data || error.message);
       res.status(error.response?.status || 500).json(error.response?.data || { message: error.message });
     }
   });
 
   app.post("/api/proxy/video-enhancer", async (req, res) => {
+    console.log("Received video-enhancer request:", { ...req.body, video_url: req.body.video_url?.substring(0, 50) + "..." });
     try {
       const response = await axios.post(`${HITPAW_BASE_URL}/api/video-enhancer`, req.body, {
         headers: { "Apikey": HITPAW_API_KEY, "Content-Type": "application/json" }
       });
+      console.log("HitPaw video-enhancer response:", response.data);
       res.json(response.data);
     } catch (error: any) {
+      console.error("HitPaw video-enhancer error:", error.response?.data || error.message);
       res.status(error.response?.status || 500).json(error.response?.data || { message: error.message });
     }
   });

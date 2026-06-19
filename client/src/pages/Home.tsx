@@ -126,9 +126,18 @@ export default function Home() {
       // Step 1: Submit Task
       setProcessStatus("Memproses AI...");
       const endpoint = fileType === 'image' ? '/api/proxy/photo-enhancer' : '/api/proxy/video-enhancer';
+      // Note: HitPaw API requires a public URL. Base64 is not supported directly.
+      // For now, we use a sample URL for testing if the uploaded file is base64.
+      const isBase64 = uploadedFile.startsWith('data:');
+      const testUrl = fileType === 'image' 
+        ? "https://files.manuscdn.com/user_upload_by_module/session_file/310519663775397883/xdDWGOpRzLTmppPC.jpg"
+        : "https://raw.githubusercontent.com/intel-iot-devkit/sample-videos/master/bottle-detection.mp4";
+
       const payload = fileType === 'image' 
-        ? { model_name: selectedModel.id, img_url: uploadedFile, extension: ".jpg" }
-        : { model_name: selectedModel.id, video_url: uploadedFile, resolution: [1920, 1080], extension: ".mp4" };
+        ? { model_name: selectedModel.id, img_url: isBase64 ? testUrl : uploadedFile, extension: ".jpg" }
+        : { model_name: selectedModel.id, video_url: isBase64 ? testUrl : uploadedFile, resolution: [1920, 1080], extension: ".mp4" };
+
+      console.log("Sending request to", endpoint, payload);
 
       const response = await fetch(endpoint, {
         method: 'POST',
